@@ -32,6 +32,13 @@ namespace WindowsFormsApplication1
             sw.Write(' ');
             sw.WriteLine(Convert.ToString(Y));
         }
+        public Cross(StreamReader _sr)
+        {
+            string line = _sr.ReadLine();
+            string[] str = line.Split(' ');
+            X = Convert.ToInt32(str[0]);
+            Y = Convert.ToInt32(str[1]);
+        }
     }
     public class Line : Shape
     {
@@ -55,6 +62,15 @@ namespace WindowsFormsApplication1
             sw.Write(Convert.ToString(F.X));
             sw.Write(' ');
             sw.WriteLine(Convert.ToString(F.Y));
+        }
+        public Line(StreamReader _sr)
+        {
+            string line = _sr.ReadLine();
+            string[] str = line.Split(' ');
+            C.X = Convert.ToInt32(str[0]);
+            C.Y = Convert.ToInt32(str[1]);
+            F.X = Convert.ToInt32(str[2]);
+            F.Y = Convert.ToInt32(str[3]);
         }
     }
     public class Circle : Shape
@@ -80,6 +96,14 @@ namespace WindowsFormsApplication1
             sw.Write(Convert.ToString(C.Y));
             sw.Write(' ');
             sw.WriteLine(Convert.ToString(r));
+        }
+        public Circle(StreamReader _sr)
+        {
+            string line = _sr.ReadLine();
+            string[] str = line.Split(' ');
+            C.X = Convert.ToInt32(str[0]);
+            C.Y = Convert.ToInt32(str[1]);
+            r = Convert.ToInt32(str[2]);
         }
     }
    
