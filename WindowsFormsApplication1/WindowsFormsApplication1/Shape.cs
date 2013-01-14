@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+using System.IO;
 
 namespace WindowsFormsApplication1
 {
     public abstract class Shape
     {
         public abstract void DrawWith(Graphics g);
+        public abstract void SaveTo(StreamWriter sw);
     }
     public class Cross : Shape
     {
@@ -23,6 +25,13 @@ namespace WindowsFormsApplication1
             g.DrawLine(p, X - 4, Y - 4, X + 4, Y + 4);
             g.DrawLine(p, X + 4, Y - 4, X - 4, Y + 4);
         }
+        public override void SaveTo(StreamWriter sw)
+        {
+            sw.WriteLine("Cross");
+            sw.Write(Convert.ToString(X));
+            sw.Write(' ');
+            sw.WriteLine(Convert.ToString(Y));
+        }
     }
     public class Line : Shape
     {
@@ -35,6 +44,17 @@ namespace WindowsFormsApplication1
         public override void DrawWith(Graphics g)
         {
             g.DrawLine(p, C, F);
+        }
+        public override void SaveTo(StreamWriter sw)
+        {
+            sw.WriteLine("Line");
+            sw.Write(Convert.ToString(C.X));
+            sw.Write(' ');
+            sw.Write(Convert.ToString(C.Y));
+            sw.Write(' ');
+            sw.Write(Convert.ToString(F.X));
+            sw.Write(' ');
+            sw.WriteLine(Convert.ToString(F.Y));
         }
     }
     public class Circle : Shape
@@ -51,6 +71,15 @@ namespace WindowsFormsApplication1
         public override void DrawWith(Graphics g)
         {
             g.DrawEllipse(p, C.X - r, C.Y - r, 2 * r, 2 * r);
+        }
+        public override void SaveTo(StreamWriter sw)
+        {
+            sw.WriteLine("Circle");
+            sw.Write(Convert.ToString(C.X));
+            sw.Write(' ');
+            sw.Write(Convert.ToString(C.Y));
+            sw.Write(' ');
+            sw.WriteLine(Convert.ToString(r));
         }
     }
    
