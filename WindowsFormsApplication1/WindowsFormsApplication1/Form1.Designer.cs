@@ -30,6 +30,7 @@
         {
             this.rb_Cross = new System.Windows.Forms.RadioButton();
             this.rb_line = new System.Windows.Forms.RadioButton();
+            this.rb_Circle = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // rb_Cross
@@ -56,11 +57,24 @@
             this.rb_line.UseVisualStyleBackColor = true;
             this.rb_line.CheckedChanged += new System.EventHandler(this.rb_CheckedChanged);
             // 
+            // rb_Circle
+            // 
+            this.rb_Circle.AutoSize = true;
+            this.rb_Circle.Location = new System.Drawing.Point(12, 249);
+            this.rb_Circle.Name = "rb_Circle";
+            this.rb_Circle.Size = new System.Drawing.Size(51, 17);
+            this.rb_Circle.TabIndex = 2;
+            this.rb_Circle.TabStop = true;
+            this.rb_Circle.Text = "Circle";
+            this.rb_Circle.UseVisualStyleBackColor = true;
+            this.rb_Circle.CheckedChanged += new System.EventHandler(this.rb_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(500, 324);
+            this.Controls.Add(this.rb_Circle);
             this.Controls.Add(this.rb_line);
             this.Controls.Add(this.rb_Cross);
             this.Name = "Form1";
@@ -77,6 +91,7 @@
 
         private System.Windows.Forms.RadioButton rb_Cross;
         private System.Windows.Forms.RadioButton rb_line;
+        private System.Windows.Forms.RadioButton rb_Circle;
     }
 }
 

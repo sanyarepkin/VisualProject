@@ -38,7 +38,15 @@ namespace WindowsFormsApplication1
                else Shapes.Add(new Line(ShapeStart, e.Location));
                IsShapeStart = !IsShapeStart;
            }
+           if (rb_Circle.Checked)
+           {
+               if (IsShapeStart) ShapeStart = e.Location;
+               else Shapes.Add(new Circle(ShapeStart, e.Location));
+               IsShapeStart = !IsShapeStart;
+           }
+           this.Refresh();
         }
+        
         
         public class Cross : Shape
         {
@@ -65,6 +73,22 @@ namespace WindowsFormsApplication1
             public override void DrawWith(Graphics g)
             {
                 g.DrawLine(p, C, F);
+            }
+        }
+        public class Circle : Shape
+        {
+            Point C, P;
+            Pen p = new Pen(Color.Blue);
+            int r;
+            public Circle(Point _C, Point _P)
+            {
+                C = _C;
+                P = _P;
+                r = Convert.ToInt32(Math.Sqrt(Math.Pow(C.X - P.X, 2) + Math.Pow(C.Y - P.Y, 2)));
+            }
+            public override void DrawWith(Graphics g)
+            {
+                g.DrawEllipse(p, C.X - r, C.Y - r, 2 * r, 2 * r);
             }
         }
         public abstract class Shape
