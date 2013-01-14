@@ -15,5 +15,11 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
         }
+
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.Text = Convert.ToString(e.X) + " . " + (e.Y);
+        }
+
     }
 }
