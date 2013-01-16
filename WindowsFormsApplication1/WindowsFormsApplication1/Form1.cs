@@ -51,6 +51,7 @@ namespace WindowsFormsApplication1
         private void rb_CheckedChanged(object sender, EventArgs e)
         {
             IsShapeStart = !IsShapeStart;
+            TempShape = null;
         }
 
         private void AddShape(Shape s)
