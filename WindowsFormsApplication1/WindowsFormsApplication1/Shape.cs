@@ -27,9 +27,9 @@ namespace WindowsFormsApplication1
         }
         public override void SaveTo(StreamWriter sw)
         {
-            sw.WriteLine("Cross");
+            sw.Write("Крест ");
             sw.Write(Convert.ToString(X));
-            sw.Write(' ');
+            sw.Write(';');
             sw.WriteLine(Convert.ToString(Y));
         }
         public Cross(StreamReader _sr)
@@ -54,13 +54,13 @@ namespace WindowsFormsApplication1
         }
         public override void SaveTo(StreamWriter sw)
         {
-            sw.WriteLine("Line");
+            sw.Write("Линия ");
             sw.Write(Convert.ToString(C.X));
-            sw.Write(' ');
+            sw.Write(';');
             sw.Write(Convert.ToString(C.Y));
-            sw.Write(' ');
+            sw.Write(';');
             sw.Write(Convert.ToString(F.X));
-            sw.Write(' ');
+            sw.Write(';');
             sw.WriteLine(Convert.ToString(F.Y));
         }
         public Line(StreamReader _sr)
@@ -90,11 +90,11 @@ namespace WindowsFormsApplication1
         }
         public override void SaveTo(StreamWriter sw)
         {
-            sw.WriteLine("Circle");
+            sw.Write("Окружность");
             sw.Write(Convert.ToString(C.X));
-            sw.Write(' ');
+            sw.Write(';');
             sw.Write(Convert.ToString(C.Y));
-            sw.Write(' ');
+            sw.Write(';');
             sw.WriteLine(Convert.ToString(r));
         }
         public Circle(StreamReader _sr)
